@@ -20,6 +20,12 @@ h1 { color: #1a3b5d; }
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: pointer;                                    /* 클릭 가능 표시 */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;  /* 부드러운 움직임 */
+}
+.card:hover {
+  transform: translateY(-4px);                        /* 위로 살짝 떠오름 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 .card h2 { margin: 0 0 8px; font-size: 18px; }
 
