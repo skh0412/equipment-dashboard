@@ -3,44 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>설비 상태 대시보드</title>
-  <style>
-    /* 페이지 전체 배경과 글꼴 */
-    body {
-      font-family: "맑은 고딕", sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 10px;
-    }
-    h1 { color: #1a3b5d; }
-
-    /* 카드를 가로 3칸으로 배치 (레이아웃) */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-
-    /* 카드 한 개의 모양 */
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-    .card h2 { margin: 0 0 8px; font-size: 18px; }
-
-    /* 상태 뱃지 (색깔) */
-    .status {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      color: white;
-      font-size: 14px;
-    }
-    .ok   { background: #280c7b; }  /* 정상 = 파랑 */
-    .warn { background: #e0a800; }  /* 점검필요 = 노랑 */
-    .stop { background: #d9534f; }  /* 정지 = 빨강 */
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <h1>설비 상태 대시보드</h1>

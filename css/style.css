@@ -1,0 +1,36 @@
+/* 페이지 전체 배경과 글꼴 */
+body {
+  font-family: "맑은 고딕", sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 24px;
+}
+h1 { color: #1a3b5d; }
+
+/* 카드를 가로 3칸으로 배치 (레이아웃) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* 카드 한 개의 모양 */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.card h2 { margin: 0 0 8px; font-size: 18px; }
+
+/* 상태 뱃지 (색깔) */
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+}
+.ok   { background: #2e9e5b; }
+.warn { background: #e0a800; }
+.stop { background: #d9534f; }
