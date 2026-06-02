@@ -5,7 +5,25 @@ body {
   margin: 0;
   padding: 24px;
 }
-h1 { color: #1a3b5d; }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+h1 { color: #1a3b5d; margin: 0; }
+
+#refreshBtn {
+  padding: 8px 20px;
+  background: #1a3b5d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+#refreshBtn:hover { background: #2a5a8d; }
 
 /* 카드를 가로 3칸으로 배치 (레이아웃) */
 .grid {

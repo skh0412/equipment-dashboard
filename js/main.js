@@ -1,27 +1,46 @@
-// 상태 순서 정의: 정상 → 점검필요 → 정지 → (다시) 정상
+/// 상태 순환 순서 (클릭 시 사용)
 const states = [
   { cls: "ok",   label: "정상" },
   { cls: "warn", label: "점검필요" },
   { cls: "stop", label: "정지" },
 ];
 
-// 페이지에서 카드를 모두 찾는다
-const cards = document.querySelectorAll(".card");
+// 상태 코드 → 한글 변환
+const statusLabel = {
+  ok:   "정상",
+  warn: "점검필요",
+  stop: "정지",
+};
 
-// 각 카드에 "클릭되면 실행할 동작"을 등록한다
-cards.forEach((card) => {
+// 카드 한 개를 만들어 반환하는 함수
+function createCard(item) {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  // 받아온 데이터로 카드 안을 채움
+  card.innerHTML = `
+    <h2>${item.name}</h2>
+    <span class="status ${item.status}">${statusLabel[item.status]}</span>
+  `;
+
+  // 클릭 시 상태 순환 (이전과 동일)
+  const badge = card.querySelector(".status");
   card.addEventListener("click", () => {
-    const badge = card.querySelector(".status");
-
-    // 지금 상태가 배열의 몇 번째인지 찾기
-    const current = states.findIndex((s) => badge.classList.contains(s.cls));
-
-    // 다음 상태 (마지막이면 다시 0번으로 순환)
+    const current = states.findIndex(s => badge.classList.contains(s.cls));
     const next = (current + 1) % states.length;
-
-    // 색 클래스와 글자를 새 상태로 교체
     badge.classList.remove(states[current].cls);
     badge.classList.add(states[next].cls);
     badge.textContent = states[next].label;
   });
-});
+
+  return card;
+}
+
+// ★ API 호출 → 데이터 받기 → 카드 그리기
+fetch("/api/equipment")
+  .then(res => res.json())
+  .then(list => {
+    const grid = document.querySelector(".grid");
+    list.forEach(item => grid.appendChild(createCard(item)));
+  })
+  .catch(err => console.error("데이터 로드 실패:", err));

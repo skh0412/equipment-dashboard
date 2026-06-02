@@ -1,0 +1,5 @@
+[
+  { "id": "A", "name": "설비 A", "status": "ok" },
+  { "id": "B", "name": "설비 B", "status": "ok" },
+  { "id": "C", "name": "설비 C", "status": "stop" }
+]
