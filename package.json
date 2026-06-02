@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/skh0412/equipment-dashboard#readme",
   "dependencies": {
+    "better-sqlite3": "^12.10.0",
     "express": "^5.2.1"
   }
 }
